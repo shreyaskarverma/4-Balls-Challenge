@@ -5,8 +5,8 @@ public class Ball extends PApplet {
     private int speed;
     private int length;
     private int width;
-    PApplet var;
-    Ball(float x,float y,int speed,int length,int width,PApplet var)
+    Main var;
+    Ball(float x,float y,int speed,int length,int width,Main var)
     {
         this.x=x;
         this.y=y;
