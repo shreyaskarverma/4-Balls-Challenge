@@ -2,8 +2,12 @@ import processing.core.*;
 import java.util.*;
 
 public class Main extends PApplet {
-    static final int WIDTH =1080;
-    static final int HEIGHT =720;
+    static final int WINDOW_WIDTH =1080;
+    static final int WINDOW_HEIGHT =720;
+    static final int BALL_HEIGHT=15;
+    static final int BALL_WIDTH=15;
+    static final int INITIAL_X=0;
+    static final int NUMBER_OF_BALLS=4;
     List<Ball> balls;
     public static void main(String[] args)
     {
@@ -13,29 +17,29 @@ public class Main extends PApplet {
     @Override
     public void settings() {
         super.settings();
-        size(WIDTH,HEIGHT);
+        size(WINDOW_WIDTH,WINDOW_HEIGHT);
     }
 
     @Override
     public void setup() {
         super.setup();
-        generateBalls(4);
+        generateBalls();
     }
 
     @Override
     public void draw() {
-        for(int i=0;i<4;i++)
+        for(int i=0;i<NUMBER_OF_BALLS;i++)
         {
             moveBalls(balls.get(i));
         }
     }
 
-    void generateBalls(int numberOfBalls)
+    void generateBalls()
     {
-        balls= new ArrayList<>(4);
-        for(int i=1;i<=numberOfBalls;i++)
+        balls= new ArrayList<>();
+        for(int i=1;i<=NUMBER_OF_BALLS;i++)
         {
-            Ball temp= new Ball(0,(float)(i*(HEIGHT /5)),i,15,15,this);
+            Ball temp= new Ball(INITIAL_X,(float)(i*(WINDOW_HEIGHT /5)),i,BALL_HEIGHT,BALL_WIDTH,this);
             balls.add(temp);
         }
     }
